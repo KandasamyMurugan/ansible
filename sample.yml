@@ -1,0 +1,6 @@
+- name: Demo on sample yaml
+  hosts: all
+  tasks:
+    - name: Saying hello
+      debug: 
+        msg: "Hello, How are you?"
