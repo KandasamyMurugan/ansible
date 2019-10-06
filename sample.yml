@@ -4,3 +4,12 @@
     - name: Saying hello
       debug: 
         msg: "Hello, How are you?"
+
+- name: Demo on sample-play 2 yaml
+  hosts: all
+  tasks:
+    - name: Saying hello from play 2
+      debug:
+        msg: "Hello, How are you? from play 2"
+~
+
