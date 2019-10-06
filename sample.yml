@@ -11,11 +11,12 @@
     - name: Saying hello from play 2
       debug:
         msg: "Hello, How are you? from play 2"
-- name: Demo on sample-play 2 yaml
+
+- name: Demo on sample-play 3 yaml
   hosts: all
   tasks:
-    - name: Saying hello from play 2
+    - name: Saying hello from play 3
       debug:
-        msg: "Hello, How are you? from play 2"
+        msg: "Hello, How are you? from play 3"
 
 
