@@ -3,5 +3,6 @@
   vars:
     URL: play.google.com
   tasks:
-    debug:
-      msg: "URL={{URL}}"
+    - name: play level variable
+      debug:
+        msg: "URL= {{URL}}"
