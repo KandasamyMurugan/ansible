@@ -1,0 +1,7 @@
+- name: Demo on play level variable
+  hosts: all
+  vars:
+    URL: play.google.com
+  tasks:
+    debug:
+      msg: "URL={{URL}}"
