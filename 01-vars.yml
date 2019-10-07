@@ -6,3 +6,32 @@
     - name: play level variable
       debug:
         msg: "URL= {{URL}}"
+
+- name: Demo on task level variables
+  hosts: all
+  tasks:
+    - name: task level variables
+      debug:
+        msg: "URL = {{URL}}"
+      vars:
+        URL: tasks.google.com
+
+- name: Demo on task level variable 1
+  hosts: all
+  tasks:
+    - name: task 1
+      debug:
+        msg: "URL1 = {{URL1}}"
+      vars:
+        URL1: task1.google.com
+
+- name: Demo on task level variable 1
+  hosts: all
+  tasks:
+    - name: task 2
+      debug:
+        msg: "URL2 = {{URL2}}"
+      vars:
+        URL2: vars.google.com 
+
+     
