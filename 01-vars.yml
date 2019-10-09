@@ -15,6 +15,12 @@
         msg: "URL = {{URL}}"
       vars:
         URL: tasks.google.com
+    - name: task level variables new
+      debug:
+        msg: "URL = {{URL}}"
+      ignore_errors: true
+      
+
 
 - name: Demo on task level variable 1
   hosts: all
@@ -27,11 +33,41 @@
 
 - name: Demo on task level variable 1
   hosts: all
+  vars:
+    URL: ignore.google.com
+
   tasks:
     - name: task 2
       debug:
         msg: "URL2 = {{URL2}}"
       vars:
-        URL2: vars.google.com 
+        URL2: new.google.com
 
-     
+    - name: task 3
+      ignore_errors: True
+      debug:
+        msg: "URL = {{URL}}" 
+      ignore_errors: true
+
+    - name: Say helloe from echo command
+      shell: echo hello
+
+- name: Demo on Variables from Promt
+  hosts: all
+  vars_prompt:
+    - prompt: Enter the URL?
+      name: URL
+      private: no
+  tasks:
+    - name: Variable Prompt
+      debug:
+        msg: "URL = {{URL}}"
+
+- name: Demo on Variables on file
+  hosts: all
+  vars_files:
+    - vars01.yml
+  tasks:
+    - name: Variables on file
+      debug:
+        msg: "URL = {{URL}}"     
