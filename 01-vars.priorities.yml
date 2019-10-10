@@ -1,0 +1,42 @@
+### OBSERVATIONS:
+  # 1. vars_files overrides vars and vars_prompt as well 
+  # 2. vars_prompt overrides vars 
+
+
+
+- name: Demo on Variable priorities
+  hosts: all
+  vars_prompt:
+    - prompt: Enter the URL?
+      name: URL
+      private: no
+  tasks:
+    - name: Promptig
+      debug:
+        msg: "URL = {{URL}}"
+  vars:
+    URL: vars.google.com
+  tasks:
+    - name: Vars google
+      debug:
+        msg: "URL = {{URL}}"
+  vars_files:
+    - vars01.yml
+  tasks:
+    - name: Vars on files
+      debug:
+        msg: "URL = {{URL}}"
+
+########Task variables overrides playvariables 
+
+- name: Dem on task & Play variables priorities
+  hosts: all
+  vars:
+    URL: play.google.com
+  tasks:
+    - name: Play level variables
+      debug:
+        msg: "URL = {{URL}}"
+  vars:
+    URL: task.google.com
+ 

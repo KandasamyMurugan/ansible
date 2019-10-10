@@ -71,3 +71,22 @@
     - name: Variables on file
       debug:
         msg: "URL = {{URL}}"     
+
+- name: Demo on Variable priorities
+  hosts: all
+  vars_prompt:
+    - prompt: Enter the URL?
+      name: URL
+      private: no
+  tasks:
+    - name: Promptig
+      debug:
+        msg: "URL = {{URL}}"
+  vars:
+    URL: vars.google.com 
+  tasks:
+    - name: Vars google
+      debug:
+        msg: "URL = {{URL}}"
+
+
