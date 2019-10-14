@@ -5,4 +5,7 @@
       shell: uptime 
       register: out 
 
-    
+    - name: Declare a variable with set_fact module
+      set_fact:
+        URL: google.com
+        LOAD_ALL: "{{out.stdout.split('.') | last }}"
