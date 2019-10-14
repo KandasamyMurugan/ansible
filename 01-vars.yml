@@ -3,5 +3,20 @@
   vars:
     URL: play.google.com
   tasks:
-    debug:
-      msg: "URL={{URL}}"
+    - name: Demo on Play level variables
+      debug:
+        msg: "URL={{URL}}"
+
+ - name: Demo on task level variables
+   hosts: all
+   debug:
+     msg: URL = "{{URL}}"
+   vars:
+     URL= tasks.google.com
+
+ - name: Demo on task level variable 1
+   hosts: all
+   debug:
+     msg: "URL2 = {{URL2}}"
+   vars:
+     URL2: vars.google.com 
