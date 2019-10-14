@@ -5,14 +5,4 @@
       shell: uptime 
       register: out 
 
-    - name: Declare a varibale with set_fact module 
-      set_fact:
-        URL: google.com 
-        LOAD_ALL: "{{out.stdout.split(':') | last }}"
-
-    - set_fact:
-        LOAD: "{{LOAD_ALL.split(',') | first}}"
-
-    - name: Access the variable from previous task 
-      debug:
-        msg: "URL = {{URL}}, Load Average = {{LOAD}}"
+    
